@@ -1,0 +1,10 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os$username$hostname$directory$git_branch$git_status$terraform$git_commit$dotnet$rust$nodejs$lua$cmd_duration
+$character
+"""
+
+[git_commit]
+commit_hash_length = 4

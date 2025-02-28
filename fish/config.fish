@@ -1,4 +1,7 @@
 if status is-interactive
+	# Commands to run in interactive sessions
+	source ~/.config/fish/alias.fish
+
 	# Fish Greeting
 	function fish_greeting
 		echo Remember, speak to the (set_color green)Duck!

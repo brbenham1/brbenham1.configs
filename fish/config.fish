@@ -4,6 +4,16 @@ if status is-interactive
 		echo Remember, speak to the (set_color green)Duck!
 	end
 
+	# Enable vi mode
+	set fish_cursor_default block blink
+	set fish_cursor_insert line blink
+	set fish_cursor_replace_one underscore blink
+	set fish_cursor_visual block
+	fish_vi_key_bindings
+
+	# Valid path
+	set -g fish_color_valid_path --underline
+
 	# Kanagawa Fish shell theme
 	set -l foreground DCD7BA normal
 	set -l selection 2D4F67 brcyan
@@ -41,6 +51,10 @@ if status is-interactive
 	# Init Starship
 	starship init fish | source
 end
+
+# Change editor to neovim
+set -gx VISUAL nvim
+set -gx EDITOR nvim
 
 # Starship Config
 set -gx STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"

@@ -128,4 +128,3 @@ require("lazy").setup({
 })
 
 vim.cmd.colorscheme("kanagawa-wave")
-

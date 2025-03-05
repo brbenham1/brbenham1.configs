@@ -5,7 +5,7 @@ return
         -- For more options see "https://github.com/nvim-treesitter/nvim-treesitter"
         "nvim-treesitter/nvim-treesitter",
         config = function()
-            require("nvim-treesitter.configs").setup {
+            require("nvim-treesitter.configs").setup ({
                 ensure_installed = { 
                     "c",
                     "lua",
@@ -67,7 +67,7 @@ return
                         include_surrounding_whitespace = true,
                     },
                 },
-            }
+            })
         end,
     },
 

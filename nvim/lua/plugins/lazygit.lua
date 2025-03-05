@@ -1,7 +1,7 @@
 -- [[ Lazygit ]]
 -- For more options see "https://github.com/rebelot/kanagawa.nvim"
-
-return {
+return 
+{
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {

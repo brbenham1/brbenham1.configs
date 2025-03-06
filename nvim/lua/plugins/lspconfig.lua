@@ -21,7 +21,10 @@ return
             })
 
             -- Setup mason lspconfig
-            require("mason-lspconfig").setup()
+            require("mason-lspconfig").setup({
+                ensure_intalled = {}, -- explicitly set to an empty table (populate via mason-tool-installer)
+                automatic_installation = false,
+            })
 
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
@@ -34,6 +37,7 @@ return
             -- LSP servers to install
             local servers = {
                 "lua-language-server",
+                "pyright",
             }
 
             -- Setup mason tool installer

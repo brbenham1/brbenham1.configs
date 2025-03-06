@@ -61,3 +61,7 @@ set -gx EDITOR nvim
 
 # Starship Config
 set -gx STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
+
+# Volta
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH

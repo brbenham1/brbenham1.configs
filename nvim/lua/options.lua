@@ -15,8 +15,8 @@ vim.opt.wrap = false
 
 -- Sync clipboard between OS and NeoVim.
 -- Schedule the setting after 'UiEnter' because it can increase startup-time.
-vim.schedule(function() 
-    vim.opt.clipboard = 'unnamedplus'
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Save undo history
@@ -49,7 +49,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Allow virtual editing in Visual block mode.
-vim.opt.virtualedit = 'block'
+vim.opt.virtualedit = "block"
 
 -- Fixes wrong line ending character on wsl
 if vim.fn.has("wsl") == 1 then
@@ -71,18 +71,18 @@ end
 -- See ':help lua-guide-autocommands'
 
 -- Create a custom highlight group
-vim.cmd('highlight YankHighlight guibg=#7AA89F')
+vim.cmd("highlight YankHighlight guibg=#7AA89F")
 
 -- Highlight when yanking (copying) text
 --  Try it with 'yap' in normal mode
 --  See ':help vim.highlight.on_yank()'
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = 'YankHighlight',
-            timeout = 200,
-        })
-    end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "YankHighlight",
+			timeout = 200,
+		})
+	end,
 })

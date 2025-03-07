@@ -1,12 +1,11 @@
-return 
-{
-    -- Vim tmux navigator
-    "christoomey/vim-tmux-navigator",
+return {
+	-- Vim tmux navigator
+	"christoomey/vim-tmux-navigator",
 
-    -- nvim-autopairs    
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
-    },
+	-- nvim-autopairs
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 }

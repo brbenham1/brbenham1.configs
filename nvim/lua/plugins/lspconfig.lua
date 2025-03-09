@@ -5,7 +5,6 @@ return {
 		event = "BufReadPost",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"neovim/nvim-lspconfig",
 		},
 
@@ -16,70 +15,77 @@ return {
 					-- The border style to use for floating windows, can be one of
 					-- 'single', 'double', 'rounded', 'solid', 'shadow', or 'none'
 					border = "rounded",
+
+					-- Custom icons
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
 				},
 			})
 
-			-- LSP capabilities
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.workspace.didChangeConfiguration.dynamicRegistration = true
-			capabilities.workspace.workspaceFolders = true
+			-- LSP servers to install
+			local servers = {
+				"lua_ls",
+				"pyright",
+			}
 
 			-- Setup mason lspconfig
 			require("mason-lspconfig").setup({
-				ensure_intalled = {}, -- explicitly set to an empty table (populate via mason-tool-installer)
-				automatic_installation = false,
+				ensure_intalled = servers,
+				automatic_installation = true,
 			})
 
+			-- Require mason-lspconfig
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
 				end,
 			})
 
-			-- LSP servers to install
-			local ensure_installed = {
-				"lua-language-server",
-				"pyright",
-			}
-
-			-- Formatters to install
-			vim.list_extend(ensure_installed, {
-				"stylua",
-				"black",
-			})
-
-			-- Setup mason tool installer
-			require("mason-tool-installer").setup({
-				ensure_installed = ensure_installed,
-			})
-
-			-- Variable for mason registry
-			local mason_registry = require("mason-registry")
-
 			-- Configure LSP servers
 			local lspconfig = require("lspconfig")
 
+			-- LSP capabilities
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.workspace.didChangeConfiguration.dynamicRegistration = true
+			capabilities.workspace.workspaceFolders = true
+
+			-- on_attach
+			local on_attach = function(_, bufner)
+				local bufoplevel = { noremap = true, silent = true, buffer = bufner }
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+				vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, {})
+				vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufoplevel)
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+				vim.lsp.handlers["textDocument/diagnostics"] = vim.diagnostic.config({
+					float = { border = "rounded" },
+				})
+				vim.lsp.handlers["textDocument/signatureHelp"] =
+					vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+				vim.lsp.handlers["textDocument/signatureHelp"] =
+					vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+			end
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
 			})
 
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
-
-			-- Remove unwanted LSPs
-			vim.schedule(function()
-				local installed_packages = mason_registry.get_installed_package_names()
-				for _, pkg_name in ipairs(installed_packages) do
-					if not vim.tbl_contains(ensure_installed, pkg_name) then
-						local package = mason_registry.get_package(pkg_name)
-						if package then
-							package:uninstall()
-							print(pkg_name .. ": unistalling...")
-						end
-					end
-				end
-			end)
 		end,
 	},
 }

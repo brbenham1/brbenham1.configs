@@ -10,3 +10,7 @@ abbr -a gpl git pull
 abbr -a gf git fetch
 abbr -a lg lazygit
 abbr -a gl git log --graph --oneline --abbrev-commit
+
+# Eza
+alias ls="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first --git -x -l -h"

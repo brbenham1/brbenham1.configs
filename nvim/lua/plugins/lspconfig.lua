@@ -30,6 +30,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"texlab",
+				"bashls",
 			}
 
 			-- Setup mason lspconfig
@@ -90,6 +91,11 @@ return {
 
 			lspconfig.texlab.setup({
 				capabilities = capabilities,
+			})
+
+			lspconfig.bashls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 		end,
 	},

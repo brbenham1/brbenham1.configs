@@ -43,10 +43,12 @@ vim.opt.termguicolors = true
 vim.opt.expandtab = true
 
 -- Number of spaces a <Tab> in the text stands for
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 
 -- Number of spaces used for each step of (auto)indent
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
+
+vim.opt.shiftround = true
 
 -- Allow virtual editing in Visual block mode.
 vim.opt.virtualedit = "block"
@@ -86,3 +88,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		})
 	end,
 })
+
+-- Markdown 3 spaces for tabs for md files
+vim.cmd([[autocmd FileType markdown setlocal tabstop=3 shiftwidth=3]])
+
+-- Enable text wrapping for md files
+vim.cmd([[autocmd FileType markdown setlocal textwidth=80]])
+vim.cmd([[autocmd FileType markdown setlocal wrap]])
+
+-- Adding the autocmd to the group
+vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=120}]])
+
+-- Disable comment continuation
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")

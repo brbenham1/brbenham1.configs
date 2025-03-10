@@ -23,6 +23,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black" },
+			markdown = { "prettier" },
 		},
 
 		format_on_save = function(bufnr)

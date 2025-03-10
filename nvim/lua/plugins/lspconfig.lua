@@ -29,6 +29,7 @@ return {
 			local servers = {
 				"lua_ls",
 				"pyright",
+				"texlab",
 			}
 
 			-- Setup mason lspconfig
@@ -84,6 +85,10 @@ return {
 			})
 
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.texlab.setup({
 				capabilities = capabilities,
 			})
 		end,

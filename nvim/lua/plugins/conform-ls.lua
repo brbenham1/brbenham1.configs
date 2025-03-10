@@ -24,6 +24,7 @@ return {
 			lua = { "stylua" },
 			python = { "black" },
 			markdown = { "prettier" },
+			latex = { "latexindent" },
 		},
 
 		format_on_save = function(bufnr)

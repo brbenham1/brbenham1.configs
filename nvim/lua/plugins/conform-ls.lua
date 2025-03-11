@@ -25,6 +25,9 @@ return {
 			python = { "black" },
 			markdown = { "prettier" },
 			latex = { "latexindent" },
+			html = { "prettier" },
+			css = { "prettier" },
+			javascript = { "prettier" },
 		},
 
 		format_on_save = function(bufnr)

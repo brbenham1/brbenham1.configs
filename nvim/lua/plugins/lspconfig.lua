@@ -30,7 +30,9 @@ return {
 				"lua_ls",
 				"pyright",
 				"texlab",
-				"bashls",
+				"html",
+				"cssls",
+				"eslint",
 			}
 
 			-- Setup mason lspconfig
@@ -87,13 +89,25 @@ return {
 
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			lspconfig.texlab.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
-			lspconfig.bashls.setup({
+			lspconfig.html.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.eslint.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

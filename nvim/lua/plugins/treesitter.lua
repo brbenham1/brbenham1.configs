@@ -9,7 +9,9 @@ local config = function()
 			"markdown_inline",
 			"query",
 			"latex",
-			"bash",
+			"html",
+			"css",
+			"javascript",
 		},
 
 		-- Automatically install missing parsers when entering buffer

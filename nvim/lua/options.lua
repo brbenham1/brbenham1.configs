@@ -89,9 +89,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Markdown 3 spaces for tabs for md files
-vim.cmd([[autocmd FileType markdown setlocal tabstop=3 shiftwidth=3]])
-
 -- Enable text wrapping for md files
 vim.cmd([[autocmd FileType markdown setlocal textwidth=80]])
 vim.cmd([[autocmd FileType markdown setlocal wrap]])

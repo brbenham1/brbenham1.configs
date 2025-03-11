@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+
+% Encoding and Font Packages
+\usepackage[utf8]{inputenc}  % UTF-8 encoding
+\usepackage[T1]{fontenc}     % Improved font encoding
+\usepackage{lmodern}         % Better font rendering
+
+% Mathematics Packages
+\usepackage{amsmath, amssymb, amsthm}   % Essential for math symbols and theorems
+\usepackage{mathtools}                  % Enhances amsmath
+\usepackage{physics}                    % Provides derivatives, integrals, and other physics notation
+
+% Code Snippet Package
+\usepackage{listings}   % Used for inserting code
+\usepackage{xcolor}     % Color support for code highlighting
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{gray!10},      % Light gray background
+    basicstyle=\ttfamily\footnotesize,    % Monospace font
+    keywordstyle=\color{blue},            % Keywords in blue
+    commentstyle=\color{green!50!black},  % Comments in green
+    stringstyle=\color{red},              % Strings in red
+    breaklines=true,                      % Line breaking in code
+    frame=single                          % Box around code
+}
+
+\lstset{style=mystyle}  % Apply the style
+
+% Image Handling
+\usepackage{graphicx}   % For including images
+\usepackage{float}      % Better control over figure placement
+\usepackage{subcaption} % For subfigures
+\usepackage{wrapfig}    % Wrapping text around figures
+
+% Hyperlinks
+\usepackage{hyperref}   % Clickable links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan
+}
+
+% Better Lists and Tables
+\usepackage{enumitem}   % Customizable lists
+\usepackage{booktabs}   % Better table formatting
+\usepackage{multirow}   % Multi-row cells in tables
+
+% Title and Author
+\title{Lecture Notes: [Course Name]}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents  % Generates a table of contents
+\newpage
+
+\end{document}

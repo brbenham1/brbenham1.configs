@@ -2,13 +2,13 @@ return {
 	{
 		"dkarter/bullets.vim",
 		config = function()
-			-- markdown 3 spaces for tabs for md files
-			vim.cmd([[autocmd FileType markdown setlocal tabstop=3 shiftwidth=3]])
+			-- Markdown 2 spaces for tabs for md files
+			vim.cmd([[autocmd FileType markdown setlocal tabstop=2 shiftwidth=2]])
 
 			vim.g.bullets_enabled_file_types = { "markdown" }
 			vim.g.bullets_outline_levels = { "num" }
 
-			-- markdown wrap lines
+			-- Markdown wrap lines
 			vim.cmd([[autocmd FileType markdown setlocal wrap]])
 
 			vim.g.bullets_checkbox_markers = " .oOx"

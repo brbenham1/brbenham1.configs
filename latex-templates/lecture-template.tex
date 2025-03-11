@@ -4,8 +4,9 @@
 \usepackage[utf8]{inputenc}  % UTF-8 encoding
 \usepackage[T1]{fontenc}     % Improved font encoding
 \usepackage{lmodern}         % Better font rendering
+\usepackage{newtxtext}       % A nice serif font
 
-% Mathematics Packages
+%Mathematics Packages
 \usepackage{amsmath, amssymb, amsthm}   % Essential for math symbols and theorems
 \usepackage{mathtools}                  % Enhances amsmath
 \usepackage{physics}                    % Provides derivatives, integrals, and other physics notation
@@ -32,30 +33,47 @@
 \usepackage{subcaption} % For subfigures
 \usepackage{wrapfig}    % Wrapping text around figures
 
-% Hyperlinks
-\usepackage{hyperref}   % Clickable links
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor=cyan
-}
-
 % Better Lists and Tables
 \usepackage{enumitem}   % Customizable lists
 \usepackage{booktabs}   % Better table formatting
 \usepackage{multirow}   % Multi-row cells in tables
 
-% Title and Author
-\title{Lecture Notes: [Course Name]}
-\author{Your Name}
-\date{\today}
+
+% Enhancing Table of Contents
+\usepackage{tocloft}
+\renewcommand{\contentsname}{\Large \textbf{Contents}}  % Bold and large title
+\setcounter{secnumdepth}{3}                   % Include subsubsections in numbering
+\setcounter{tocdepth}{3}                      % Show subsubsections in ToC
+\renewcommand{\cftsecfont}{\large\bfseries}   % Bold Section Titles
+\renewcommand{\cftsubsecfont}{\normalsize}    % Normal Subsection Titles
+\renewcommand{\cftsecpagefont}{\bfseries}     % Bold Page Numbers
+\renewcommand{\cftdotsep}{2}  
+
+% Unit / Date / Coordinator / Author
+\newcommand{\unitName}{Name of the Unit}
+\newcommand{\unitDate}{Unit start date}
+\newcommand{\unitCoordinator}{Coordinator}
+\newcommand{\documentAuthor}{Bryce Benham}
+
+\date{}
 
 \begin{document}
-
-\maketitle
+%
+\begin{titlepage}
+	\begin{center}
+		{\Huge \textbf{\unitName}} \\[0.2in]
+		\rule{0.7\textwidth}{0.6pt} \\[0.2in]
+		{\large \unitDate} \\[0.3in]
+		{\large \textsc{\unitCoordinator}} \\[0.2in]
+		\vfill
+		{\Large \textbf{\documentAuthor}} \\[0.1in]
+	\end{center}
+	\thispagestyle{empty}
+\end{titlepage}
+% 
+\tableofcontents
 \newpage
-
-\tableofcontents  % Generates a table of contents
-\newpage
+%
+\section{Begin here!}
 
 \end{document}

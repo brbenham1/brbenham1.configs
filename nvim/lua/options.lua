@@ -73,7 +73,7 @@ end
 -- See ':help lua-guide-autocommands'
 
 -- Create a custom highlight group
-vim.cmd("highlight YankHighlight guibg=#7AA89F")
+vim.cmd("highlight YankHighlight guifg=#2E3440 guibg=#7AA89F")
 
 -- Highlight when yanking (copying) text
 --  Try it with 'yap' in normal mode
@@ -92,9 +92,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Enable text wrapping for md files
 vim.cmd([[autocmd FileType markdown setlocal textwidth=80]])
 vim.cmd([[autocmd FileType markdown setlocal wrap]])
-
--- Adding the autocmd to the group
-vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=120}]])
 
 -- Disable comment continuation
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")

@@ -32,7 +32,7 @@ return {
 				"texlab",
 				"html",
 				"cssls",
-				"eslint",
+				"ts_ls",
 			}
 
 			-- Setup mason lspconfig
@@ -107,7 +107,7 @@ return {
 				on_attach = on_attach,
 			})
 
-			lspconfig.eslint.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

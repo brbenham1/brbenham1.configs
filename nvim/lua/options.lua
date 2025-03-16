@@ -43,10 +43,10 @@ vim.opt.termguicolors = true
 vim.opt.expandtab = true
 
 -- Number of spaces a <Tab> in the text stands for
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 
 -- Number of spaces used for each step of (auto)indent
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 
 vim.opt.shiftround = true
 

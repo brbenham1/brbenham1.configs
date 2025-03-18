@@ -26,6 +26,16 @@ return {
 		-- Lazy-load snippets, i.e. only load when required, e.g. for a given filetype
 		require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/luasnip/" })
 
+		-- Store auxiliary files in 'build/'
+		vim.g.vimtex_compiler_latexmk = {
+			options = {
+				"-auxdir=build",
+				"-interaction=nonstopmode",
+				"-shell-escape",
+				"-synctex=1",
+			},
+		}
+
 		-- Expand or jump in insert mode
 		vim.keymap.set("i", "<Tab>", function()
 			return luasnip.expand_or_jumpable() and "<Plug>luasnip-expand-or-jump" or "<Tab>"

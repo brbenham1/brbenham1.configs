@@ -25,7 +25,7 @@ end
 return {
 	-- \texttt
 	s(
-		{ trig = "tt", dscr = "Expands 'tii' into LaTeX's textit{} command." },
+		{ trig = "tt", dscr = "Expands 'tt' into LaTeX's texttt{} command." },
 		fmta("\\texttt{<>}", {
 			d(1, get_visual),
 		})
@@ -35,6 +35,14 @@ return {
 	s(
 		{ trig = "tii", dscr = "Expands 'tii' into LaTeX's textit{} command." },
 		fmta("\\textit{<>}", {
+			d(1, get_visual),
+		})
+	),
+
+	-- \textbf
+	s(
+		{ trig = "tbf", dscr = "Expands 'tbf' into LaTeX's textbf{} command." },
+		fmta("\\textbf{<>}", {
 			d(1, get_visual),
 		})
 	),

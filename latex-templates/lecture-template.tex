@@ -38,13 +38,20 @@
 \usepackage{booktabs}   % Better table formatting
 \usepackage{multirow}   % Multi-row cells in tables
 
+% Theorems
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{corollary}{Corollary}[theorem]
 
 % Enhancing Table of Contents
 \usepackage{tocloft}
 \renewcommand{\contentsname}{\Large \textbf{Contents}}  % Bold and large title
 \setcounter{secnumdepth}{3}                   % Include subsubsections in numbering
 \setcounter{tocdepth}{3}                      % Show subsubsections in ToC
-\renewcommand{\cftsecfont}{\large\bfseries}   % Bold Section Titles
+\renewcommand{\cftsecfont}{\normalsize\bfseries}   % Bold Section Titles
 \renewcommand{\cftsubsecfont}{\normalsize}    % Normal Subsection Titles
 \renewcommand{\cftsecpagefont}{\bfseries}     % Bold Page Numbers
 \renewcommand{\cftdotsep}{2}  

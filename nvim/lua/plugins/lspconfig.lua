@@ -6,6 +6,8 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
+			"Decodetalkers/csharpls-extended-lsp.nvim",
+			"Hoffs/omnisharp-extended-lsp.nvim",
 		},
 
 		config = function()
@@ -33,6 +35,7 @@ return {
 				"html",
 				"cssls",
 				"ts_ls",
+				"csharp_ls",
 			}
 
 			-- Setup mason lspconfig
@@ -110,6 +113,21 @@ return {
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+			})
+
+			lspconfig.omnisharp.setup({
+				on_attach = on_attach,
+				handlers = {
+					["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+					["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
+					["textDocument/references"] = require("omnisharp_extended").references_handler,
+					["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+				},
+				capabilities = capabilities,
+				enable_roslyn_analysers = true,
+				enable_import_completion = true,
+				organize_imports_on_format = true,
+				enable_decompilation_support = true,
 			})
 		end,
 	},

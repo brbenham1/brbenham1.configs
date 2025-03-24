@@ -28,6 +28,7 @@ return {
 			html = { "prettier" },
 			css = { "prettier" },
 			javascript = { "prettier" },
+			cs = { "csharpier" },
 		},
 
 		format_on_save = function(bufnr)

@@ -2,6 +2,7 @@ local config = function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"c",
+			"c_sharp",
 			"lua",
 			"vim",
 			"vimdoc",

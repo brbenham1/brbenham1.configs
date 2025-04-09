@@ -22,6 +22,14 @@ local in_mathzone = function()
 	return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
 
+-- Accessing regex capture groups with LuaSnip
+f(function(_, snip)
+	return snip.captures[1]
+end) -- return first capture group
+f(function(_, snip)
+	return snip.captures[2]
+end) -- return second capture group, etc.
+
 return {
 	-- \texttt
 	s(
@@ -71,6 +79,20 @@ return {
 		)
 	),
 
+	-- Equation *
+	s(
+		{ trig = "eq*", dscr = "A LaTeX equation environment" },
+		fmt(
+			[[
+      \begin{equation*}
+          <>
+      \end{equation*}
+    ]],
+			{ i(1) },
+			{ delimiters = "<>" }
+		)
+	),
+
 	-- Environment
 	s(
 		{ trig = "env", snippetType = "autosnippet" },
@@ -86,5 +108,24 @@ return {
 				rep(1), -- this node repeats insert node i(1)
 			}
 		)
+	),
+
+	-- \noindent
+	s(
+		{ trig = "noi", dscr = "Expands 'noi' into LaTeX's \\noindent command." },
+		fmta("\\noindent<>", {
+			d(1, get_visual),
+		})
+	),
+
+	-- Inline math
+	s(
+		{ trig = "mm" },
+		fmta("<>$<>$", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		})
 	),
 }

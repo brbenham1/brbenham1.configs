@@ -20,9 +20,15 @@ end, {
 return {
 	"stevearc/conform.nvim",
 	opts = {
+		formatters = {
+			dotnetformat = {
+				command = "dotnet format",
+				args = { "--include", "$FILENAME" },
+			},
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black" },
+			python = { "ruff" },
 			markdown = { "prettier" },
 			latex = { "latexindent" },
 			html = { "prettier" },

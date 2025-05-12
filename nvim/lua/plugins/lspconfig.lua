@@ -30,12 +30,12 @@ return {
 			-- LSP servers to install
 			local servers = {
 				"lua_ls",
-				"pyright",
 				"texlab",
 				"html",
 				"cssls",
 				"ts_ls",
 				"csharp_ls",
+				"ruff",
 			}
 
 			-- Setup mason lspconfig
@@ -44,15 +44,12 @@ return {
 				automatic_installation = true,
 			})
 
-			-- Require mason-lspconfig
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
-			})
-
-			-- Configure LSP servers
-			local lspconfig = require("lspconfig")
+			-- # OUTDATED: Require mason-lspconfig
+			-- require("mason-lspconfig").setup_handlers({
+			-- 	function(server_name)
+			-- 		require("lspconfig")[server_name].setup({})
+			-- 	end,
+			-- })
 
 			-- LSP capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -78,6 +75,19 @@ return {
 					vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 			end
 
+			-- Configure LSP servers
+			local lspconfig = require("lspconfig")
+
+			for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+				local default_diagnostic_handler = vim.lsp.handlers[method]
+				vim.lsp.handlers[method] = function(err, result, context, config)
+					if err ~= nil and err.code == -32802 then
+						return
+					end
+					return default_diagnostic_handler(err, result, context, config)
+				end
+			end
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -88,11 +98,6 @@ return {
 						},
 					},
 				},
-			})
-
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 
 			lspconfig.texlab.setup({
@@ -111,6 +116,11 @@ return {
 			})
 
 			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.ruff.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

@@ -13,6 +13,7 @@ local config = function()
 			"html",
 			"css",
 			"javascript",
+			"python",
 		},
 
 		-- Automatically install missing parsers when entering buffer

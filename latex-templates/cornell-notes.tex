@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{subcaption}
+
+% Define new column types
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Define table padding
+\renewcommand{\arraystretch}{2}     % increases row height (vertical padding)
+\setlength{\tabcolsep}{12pt}        % increases horizontal padding between columns
+
+% Custom Date
+\newcommand{\fancydate}{May 19\textsuperscript{th}, 2025}
+
+% Custom title
+\title{\Huge\bfseries{Lecture 00}}
+\author{\Large{Bryce Benham}}
+\date{\fancydate}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+	\centering
+	\vspace*{3cm}
+
+	\rule{\textwidth}{1pt}\par
+	\vspace{0.5em}
+
+	{\Huge\bfseries{Lecture 00}\par}
+	\vspace{1em}
+	{\LARGE{AAA000 - Course Name}\par}
+
+	\vspace{0.5em}
+	\rule{\textwidth}{1pt}\par
+
+	\vspace{0.5cm}
+
+	{\Large{Bryce Benham}\par}
+	\vspace{0.5em}
+	{\large \fancydate \par}
+
+	\vfill
+\end{titlepage}
+
+\newpage
+
+\section*{Lecture Syllabus}
+
+\noindent
+\makebox[\textwidth][c]{%
+	\begin{tabular}{|p{6.65cm}|p{12.35cm}|}
+		\hline
+		\textbf{Cue} & \textbf{Notes} \\
+		\hline
+
+		% Cue column
+		Written after class (sometimes during). Remember to only use
+		\textbf{short phrases} or \textbf{single words} - not full sentences.
+
+		\begin{itemize}
+			\item Key questions
+			\item Main ideas/concepts
+			\item Important names or dates
+			\item Vocabulary terms
+			\item Formulas or equations
+			\item Triggers for review
+			\item Exam/Quiz hints
+			\item Connection or analogies
+			\item Examples to remember
+		\end{itemize}
+
+		After class, \textbf{review your notes and add questions or cues}. Use
+		cues to \textbf{quiz yourself} when studying later.
+		             &
+		% Notes column
+		Taken during class, keep bullet points \textbf{clear and concise} but
+		sufficiently detailed. Use \textbf{indentation} or \textbf{sub-bullets}
+		for related ideas. Highlight or underline \textbf{key terms}. Use
+		different colors or fonts if possible.
+
+		\begin{itemize}[left=0pt]
+			\item Detailed explanations
+			\item Definitions
+			\item Examples
+			\item Diagrams and charts
+			\item Step-by-step processes
+			\item Important dates, names and places
+			\item Quotes or exact phrases
+			\item Comparisons and contrast
+			\item Class discussion and questions
+			\item Your own paraphrasing
+			\item Abbreviations and symbols
+			\item Spaces for adding information later
+		\end{itemize}
+		\\
+		\hline
+	\end{tabular}%
+}
+
+\newpage
+
+% Summary
+\noindent
+\makebox[\textwidth][c]{%
+	\begin{tabular}{|p{16cm}|}
+		\hline
+		\textbf{Summary} \\
+		\hline
+
+		% Start Summary Here!
+		Keep it \textbf{short and clear}, ideally 2 - 5 sentences. Use your own
+		words to \textbf{solidify understanding}. Write the summary \textbf{after
+			class} or \textbf{studying}, not during. Use the summary as a \textbf{quick
+			refresher} before exams.
+
+		\begin{itemize}
+			\item Key takeaways
+			\item Big picture overview
+			\item Main answers
+			\item Connections
+			\item Purpose of the lecture
+			\item Personal reflections
+			\item Action items
+		\end{itemize}
+
+		This page summarizes the key points discussed during the lecture.
+		Write a concise overview of the main concepts, including takeaways,
+		definitions, or conclusions drawn from the session. This area is also
+		useful for self-reflection or noting study reminders.
+		\\
+		\hline
+	\end{tabular}%
+}
+\end{document}

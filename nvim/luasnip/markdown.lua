@@ -31,14 +31,14 @@ f(function(_, snip)
 end) -- return second capture group, etc.
 
 return {
-	-- Inline math
-	s(
-		{ trig = "mm" },
-		fmta("<>$<>$", {
-			f(function(_, snip)
-				return snip.captures[1]
-			end),
-			d(1, get_visual),
-		})
-	),
+	-- h2 --> ##
+	s("h2", t("## ")), -- Might even remove this later, see how I feel
+	-- h3 --> ###
+	s("h3", t("### ")),
+	-- h4 --> ####
+	s("h4", t("#### ")),
+	-- h5 --> #####
+	s("h5", t("##### ")),
+	-- h6 --> ######
+	s("h6", t("###### ")),
 }

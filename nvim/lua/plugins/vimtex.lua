@@ -8,6 +8,13 @@ vim.api.nvim_create_user_command("InsertLatexTemplate", function()
 	vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
 end, {})
 
+-- Manually insert cornell notes on new .tex file
+vim.api.nvim_create_user_command("InsertLatexCornell", function()
+	local template_path = vim.fn.expand("~/.config/latex-templates/cornell-notes.tex")
+	local lines = vim.fn.readfile(template_path)
+	vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+end, {})
+
 return {
 	"lervag/vimtex",
 	lazy = false,

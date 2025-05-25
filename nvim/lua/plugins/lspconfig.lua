@@ -35,6 +35,7 @@ return {
 				"cssls",
 				"ts_ls",
 				"csharp_ls",
+				"omnisharp",
 				"ruff",
 			}
 
@@ -126,6 +127,7 @@ return {
 			})
 
 			lspconfig.omnisharp.setup({
+				cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
 				on_attach = on_attach,
 				handlers = {
 					["textDocument/definition"] = require("omnisharp_extended").definition_handler,

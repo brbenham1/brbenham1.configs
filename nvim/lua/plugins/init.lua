@@ -7,6 +7,18 @@ return {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
+
+	-- nvim-ts-autotag
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufreadPre", "BufNewFile" },
+		opts = {},
+		config = function(_, opts)
+			require("nvim-ts-autotag").setup(opts)
+		end,
 	},
 
 	{

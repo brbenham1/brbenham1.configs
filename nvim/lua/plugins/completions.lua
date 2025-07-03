@@ -17,6 +17,10 @@ return { -- Autocompletion
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 
+		-- Set completion menu height/width
+		vim.o.pumheight = 15
+		vim.o.pumwidth = 50
+
 		cmp.setup({
 			formatting = {
 				-- kind is icon, abbr is completion name, menu is [Function]

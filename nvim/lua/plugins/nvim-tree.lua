@@ -10,7 +10,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		view = {
-			adaptive_size = true,
+			adaptive_size = false,
 			width = 40,
 		},
 		update_focused_file = {
@@ -56,6 +56,7 @@ return {
 		diagnostics = {
 			enable = true,
 			show_on_dirs = true,
+			show_on_open_dirs = false,
 			debounce_delay = 450,
 			severity = {
 				min = vim.diagnostic.severity.WARNING,

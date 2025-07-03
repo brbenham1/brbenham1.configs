@@ -33,8 +33,11 @@ return {
 			latex = { "latexindent" },
 			html = { "prettier" },
 			css = { "prettier" },
-			javascript = { "prettier" },
 			cs = { "csharpier" },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 
 		format_on_save = function(bufnr)

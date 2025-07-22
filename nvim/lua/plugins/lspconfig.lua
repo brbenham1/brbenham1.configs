@@ -2,7 +2,6 @@ return {
 	{
 		-- Lazy plugins plus dependencies
 		"williamboman/mason-lspconfig.nvim",
-		event = "BufReadPost",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
@@ -65,7 +64,8 @@ return {
 				vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, {})
 				vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufoplevel)
+				-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufoplevel)
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 				vim.lsp.handlers["textDocument/diagnostics"] = vim.diagnostic.config({
 					float = { border = "rounded" },

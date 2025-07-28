@@ -4,7 +4,7 @@
 TARGET_DIR="$HOME/.config"
 
 # Array of application directories
-apps=("tmux" "fish" "lazygit" "starship" "nvim") 
+apps=("tmux" "fish" "ghostty" "lazygit" "starship" "nvim") 
 
 # Iterate through the array
 echo "Creating symbolic links..."

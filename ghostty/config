@@ -1,4 +1,11 @@
 font-family = "FiraCodeNerdFontMono"
+font-thicken
+
+font-style = Regular
+font-style-bold = Regular
+
+window-padding-x = 4
+window-padding-y = 4
 
 palette = 0=#16161d
 palette = 1=#c34043

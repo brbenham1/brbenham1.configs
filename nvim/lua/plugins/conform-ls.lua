@@ -21,6 +21,10 @@ return {
 	"stevearc/conform.nvim",
 	opts = {
 		formatters = {
+			typstyle = {
+				commmand = "typstyle",
+				args = { "--wrap-text" },
+			},
 			dotnetformat = {
 				command = "dotnet format",
 				args = { "--include", "$FILENAME" },
@@ -38,6 +42,7 @@ return {
 			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
+			typst = { "typstyle" },
 		},
 
 		format_on_save = function(bufnr)

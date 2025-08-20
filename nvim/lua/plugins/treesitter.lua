@@ -15,6 +15,7 @@ local config = function()
 			"javascript",
 			"python",
 			"typescript",
+			"typst",
 		},
 
 		-- Automatically install missing parsers when entering buffer

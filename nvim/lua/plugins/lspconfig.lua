@@ -36,6 +36,7 @@ return {
 				"csharp_ls",
 				"omnisharp",
 				"ruff",
+				"tinymist",
 			}
 
 			-- Setup mason lspconfig
@@ -122,6 +123,11 @@ return {
 			})
 
 			lspconfig.ruff.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.tinymist.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

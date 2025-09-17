@@ -43,6 +43,7 @@ return {
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
 			typst = { "typstyle" },
+			c = { "clang-format" },
 		},
 
 		format_on_save = function(bufnr)

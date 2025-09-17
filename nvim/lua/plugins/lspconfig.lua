@@ -37,6 +37,7 @@ return {
 				"omnisharp",
 				"ruff",
 				"tinymist",
+				"clangd",
 			}
 
 			-- Setup mason lspconfig
@@ -128,6 +129,11 @@ return {
 			})
 
 			lspconfig.tinymist.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.clangd.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

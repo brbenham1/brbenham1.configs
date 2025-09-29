@@ -72,6 +72,11 @@ return {
 				vim.lsp.handlers["textDocument/diagnostics"] = vim.diagnostic.config({
 					float = { border = "rounded" },
 				})
+
+				-- Jump to next diagnostic (error/warning/etc.)
+				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Prev diagnostic" })
+				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Next diagnostic" })
+
 				vim.lsp.handlers["textDocument/signatureHelp"] =
 					vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 				vim.lsp.handlers["textDocument/signatureHelp"] =

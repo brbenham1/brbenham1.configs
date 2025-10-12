@@ -96,7 +96,7 @@ return {
 				end
 			end
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
@@ -108,42 +108,42 @@ return {
 				},
 			})
 
-			lspconfig.texlab.setup({
+			vim.lsp.config("texlab", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.html.setup({
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.cssls.setup({
+			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.ts_ls.setup({
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.ruff.setup({
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.tinymist.setup({
+			vim.lsp.config("tinymist", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.omnisharp.setup({
+			vim.lsp.config("omnisharp", {
 				cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
 				on_attach = on_attach,
 				handlers = {

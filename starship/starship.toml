@@ -8,3 +8,9 @@ $character
 
 [git_commit]
 commit_hash_length = 4
+
+[character]
+vimcmd_symbol = '[N](bold blue)'
+vimcmd_visual_symbol = '[V](bold purple)'
+vimcmd_replace_symbol = '[R](bold green)'
+vimcmd_replace_one_symbol = '[R](bold green)'

@@ -32,5 +32,5 @@ set -gx STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
-# Created by `pipx` on 2025-05-12 21:41:00
-set PATH $PATH /home/brbenham1/.local/bin
+# Pipx
+set -gx PATH "$HOME/.local/bin" $PATH

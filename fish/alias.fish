@@ -1,3 +1,6 @@
+# Preferred tools
+alias vim=nvim
+
 # Git
 abbr -a gs git status -sb
 abbr -a ga git add

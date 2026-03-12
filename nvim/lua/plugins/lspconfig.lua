@@ -35,7 +35,8 @@ return {
 				"ts_ls",
 				"csharp_ls",
 				"omnisharp",
-				"ruff",
+				-- "ruff",
+				"pyright",
 				"tinymist",
 				"clangd",
 			}
@@ -43,7 +44,7 @@ return {
 			-- Setup mason lspconfig
 			require("mason-lspconfig").setup({
 				ensure_intalled = servers,
-				automatic_installation = true,
+				automatic_installation = false,
 			})
 
 			-- # OUTDATED: Require mason-lspconfig
@@ -128,7 +129,12 @@ return {
 				on_attach = on_attach,
 			})
 
-			vim.lsp.config("ruff", {
+			-- vim.lsp.config("ruff", {
+			-- 	capabilities = capabilities,
+			-- 	on_attach = on_attach,
+			-- })
+
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

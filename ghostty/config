@@ -1,11 +1,18 @@
 font-family = "FiraCodeNerdFontMono"
+font-size = 16
 font-thicken
-
 font-style = Regular
 font-style-bold = Regular
 
 window-padding-x = 4
 window-padding-y = 4
+window-padding-balance = true
+
+initial-command = /opt/homebrew/bin/fish -l -c "tmux attach-session -t home || tmux new-session -s home"
+macos-icon = retro
+macos-option-as-alt = true
+confirm-close-surface = false
+window-save-state = always
 
 palette = 0=#16161d
 palette = 1=#c34043

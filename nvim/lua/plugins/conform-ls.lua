@@ -32,7 +32,7 @@ return {
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "ruff" },
+			python = { "ruff_format" },
 			markdown = { "prettier" },
 			latex = { "latexindent" },
 			html = { "prettier" },
